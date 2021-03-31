@@ -21,6 +21,32 @@ class AtendimentoRecepcaoList extends Component {
         this.state = this.INITIAL_STATE
     }
 
+    componentDidMount(){
+        this.consultar();
+    }
+
+    consultar(){
+        const filtro = this.state.filtro;
+        const url = `${consts.API_URL}/unidade-internacao/filtro`;
+        const request = axios.post(url,filtro).then(request => {
+            this.setState({lista: request.data})
+        })
+    }
+
+    clear(){
+        this.setState(this.INITIAL_STATE, () => this.consultar())
+    }
+
+    renderRows(list = []){
+        return this.state.lista.map((item, index) => {
+            return (
+                <tr key={index}>
+                    <td>{item.descricao}</td>
+                </tr>
+            )
+        })
+    }
+
     render() {
         return (
             <div>
@@ -40,8 +66,8 @@ class AtendimentoRecepcaoList extends Component {
                                         </Grid>
                                     </Row>
                                     <div className="box-footer">
-                                        <button type='button' className="btn btn-primary">Consultar</button>
-                                        <button type='button' className="btn btn-warning">Limpar</button>
+                                        <button type='button' className="btn btn-primary" onClick={() => this.consultar()}>Consultar</button>
+                                        <button type='button' className="btn btn-warning" onClick={() => this.clear()}>Limpar</button>
                                     </div>
                                     <div className="box-footer"></div>
                                 </form>
@@ -52,12 +78,16 @@ class AtendimentoRecepcaoList extends Component {
                                             <table className="table table-bordered table-striped table-hover">
                                                 <thead>
                                                     <tr>
-                                                        <th>Atendimento</th>
+                                                        <th>Nº Agend.</th>
+                                                        <th>Data</th>
+                                                        <th>Horário</th>
+                                                        <th>Prestador</th>
+                                                        <th>Same</th>
                                                         <th>Paciente</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-
+                                                    {this.renderRows()}
                                                 </tbody>
                                             </table>
                                         </div>
