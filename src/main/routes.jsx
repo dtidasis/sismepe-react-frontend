@@ -18,12 +18,15 @@ import OperativaList from '../operativa-pessoa-teste/OperativaList'
 import OperativaEdit from '../operativa-pessoa-teste/OperativaEdit'
 import UnidadeInternacaoList from '../unidade-internacao/UnidadeInternacaoList'
 import UnidadeInternacaoEdit from '../unidade-internacao/UnidadeInternacaoEdit'
+import DashboardMilitar from '../dashboard/DashboardMilitar'
+import AtendimentoRecepcaoList from '../components/atendimento/servico-social/AtendimentoRecepcaoList'
 
 export default props => (
     <Router history={hashHistory}>
         <Route path='/' component={AuthOrApp}>
             <IndexRoute component={Dashboard} />
             <Route path='dashboardPCR' component={DashboardPCR} />
+            <Route path='dashboardMilitar' component={DashboardMilitar} />
             <Route path='internados' component={PainelPacientesInternados} />
             <Route path='classificacao' component={DashboardClassificacaoRisco} />
             <Route path='suspeitasCovidInternacao' component={SuspeitaCovidInternacaoList} />
@@ -39,6 +42,7 @@ export default props => (
             <Route path='operativaEdit' component={OperativaEdit} />
             <Route path='unidadeInternacaoList' component={UnidadeInternacaoList} />
             <Route path='unidadeInternacaoEdit' component={UnidadeInternacaoEdit} />
+            <Route path='atendimentoServicoSocialRecepcaoList' component={AtendimentoRecepcaoList} />
         </Route>
         <Redirect from='*' to='/' />
     </Router>
