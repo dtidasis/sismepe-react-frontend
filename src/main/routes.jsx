@@ -20,6 +20,7 @@ import UnidadeInternacaoList from '../unidade-internacao/UnidadeInternacaoList'
 import UnidadeInternacaoEdit from '../unidade-internacao/UnidadeInternacaoEdit'
 import DashboardMilitar from '../dashboard/DashboardMilitar'
 import AtendimentoRecepcaoList from '../components/atendimento/servico-social/AtendimentoRecepcaoList'
+import AtendimentoConsultaList from '../components/atendimento/servico-social/AtendimentoConsultaList'
 
 export default props => (
     <Router history={hashHistory}>
@@ -43,6 +44,7 @@ export default props => (
             <Route path='unidadeInternacaoList' component={UnidadeInternacaoList} />
             <Route path='unidadeInternacaoEdit' component={UnidadeInternacaoEdit} />
             <Route path='atendimentoServicoSocialRecepcaoList' component={AtendimentoRecepcaoList} />
+            <Route path='atendimentoServicoSocialConsultaList' component={AtendimentoConsultaList} />
         </Route>
         <Redirect from='*' to='/' />
     </Router>

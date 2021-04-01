@@ -7,6 +7,7 @@ export default props => (
         <MenuTree label='Atendimento' icon='list-alt'>
             <MenuTree label='Serviço Social' icon='list-alt'>
                 <MenuItem path='/atendimentoServicoSocialRecepcaoList' label='Recepção' icon='user-md'/>
+                <MenuItem path='/atendimentoServicoSocialConsultaList' label='Consulta' icon='user-md'/>
             </MenuTree>
         </MenuTree>
         <MenuTree label='Covid-19' icon='list-alt'>
